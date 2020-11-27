@@ -1,4 +1,5 @@
 const express = require("express");
+const bcrypt = require("bcrypt");
 
 const app = express();
 
@@ -11,6 +12,10 @@ app.get("/users", (req, res) => {
 });
 
 app.post("/users", (req, res) => {
+  req.body.password = bcrypt.hashSync(
+    req.body.password,
+    bcrypt.genSaltSync(10)
+  );
   const user = { name: req.body.name, password: req.body.password };
   users.push(user);
   res.sendStatus(201).send();
