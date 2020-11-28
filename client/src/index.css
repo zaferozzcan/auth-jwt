@@ -158,3 +158,6 @@ body {
     font-size: 0.9rem;
   }
 }
+.register-button:hover {
+  background-color: green;
+}
