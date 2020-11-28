@@ -32,7 +32,7 @@ export default function Register() {
       history.push("/");
     } catch (err) {
       console.log(err);
-      // err.response.data.msg && setError(err.response.data.msg);
+      err.response.data.msg && setError(err.response.data.msg);
     }
   };
 
