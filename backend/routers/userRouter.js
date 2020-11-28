@@ -1,5 +1,6 @@
 const router = require("express").Router();
 const User = require("../models/userModel");
+const bcrypt = require("bcrypt");
 
 router.post("/register", async (req, res) => {
   try {
@@ -26,9 +27,23 @@ router.post("/register", async (req, res) => {
 
     // check a name entered
     if (!displayName) displayName = email; // display email if a name is not given by user
+
+    //   -------------- hashing passport -----------------//
+    const salt = await bcrypt.genSalt(10);
+    const passwordHash = await bcrypt.hash(password, salt);
+
+    User.create({ email, password: passwordHash, displayName }, (err, data) => {
+      if (!err) {
+        res.status(200).json(data);
+      } else {
+        res.status(400).json(err.message);
+      }
+    });
+
+    // catch error
   } catch (err) {
     if (err) {
-      res.status(500).json(err);
+      res.status(500).json(err.message);
     }
   }
 });
