@@ -68,6 +68,8 @@ body {
 #header .auth-options {
   height: 100%;
   display: flex;
+  align-items: center;
+  margin-right: 20px;
 }
 #header .auth-options button {
   padding: 0 1rem;
