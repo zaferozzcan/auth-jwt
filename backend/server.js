@@ -27,6 +27,10 @@ const app = express();
 // middleware
 app.use(express.json());
 app.use(cors());
+// app.use((req, res, next) => {
+//   res.header("Access-Control-Allow-Origin", "*");
+//   next();
+// });
 // set up routes
 app.use("/users", require("./routers/userRouter"));
 
