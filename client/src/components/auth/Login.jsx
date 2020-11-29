@@ -9,7 +9,7 @@ export default function Login() {
   const [password, setPassword] = useState();
   const [error, setError] = useState();
 
-  const { setUserData } = useContext(UserContext);
+  const { userData, setUserData } = useContext(UserContext);
   const history = useHistory();
 
   const submit = async (e) => {
@@ -30,6 +30,8 @@ export default function Login() {
       err.response.data.msg && setError(err.response.data.msg);
     }
   };
+
+  console.log(userData);
   return (
     <div className="page">
       <h2>Log in</h2>

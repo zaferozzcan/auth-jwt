@@ -1,22 +1,3 @@
-// import React from "react";
-// import { useHistory } from "react-router-dom";
-
-// export default function AuthOptions() {
-//   const register = () => history.push("/register");
-//   const login = () => history.push("/login");
-//   const logout = () => {};
-//   const history = useHistory();
-//   return (
-//     <nav className="auth-options">
-//       <button onClick={logout}>Log out</button>
-//       <>
-//         <button onClick={register}>Register</button>
-//         <button onClick={login}>Log in</button>
-//       </>
-//     </nav>
-//   );
-// }
-
 import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import UserContext from "../../context/UserContext";
